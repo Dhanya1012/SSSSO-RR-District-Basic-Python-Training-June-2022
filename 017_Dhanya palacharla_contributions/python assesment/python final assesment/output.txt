@@ -1,0 +1,2 @@
+add of even numbers is: 6
+mul of even numbers is: 8
