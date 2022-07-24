@@ -1,6 +1,6 @@
 # SSSSO-RR-District-Basic-Python-Training-June-2022
 
-Basic Python Training Organized by Sri Sathya Sai Seva Organization RR District in the month of June 2022.
+Basic Python Training Organized by Sri Sathya Sai Seva Organization RR District in June 2022.
 
 ## Timings
 
@@ -12,7 +12,7 @@ Basic Python Training Organized by Sri Sathya Sai Seva Organization RR District 
 ## Rewards
 > Top 10 Contributors to this Repository will get a Merit Certificate and Special Rewards from the SSSSO RR District Python Training Organizers
 
-## How to contribute to this github repo?
+## How to contribute to this GitHub repo?
 
 ![github steps being shown in this image](https://github.com/saikrishnavadali05/SSSSO-RR-District-Basic-Python-Training-June-2022/blob/master/github_steps.jpg)
 
@@ -122,6 +122,7 @@ Basic Python Training Organized by Sri Sathya Sai Seva Organization RR District 
 21. [Exception Handling](#21)
     - [Exercise-16](#21.1)
 22. [Built in tools](#22)
+23. [List Comprehensions](#23)
 
 ## Answers <a name="answers"></a>
 
@@ -155,7 +156,7 @@ Basic Python Training Organized by Sri Sathya Sai Seva Organization RR District 
 1. **Python** is a **general-purpose high-level** programming language. Being a general-purpose language, it can be used to build almost any type of application with the right **tools** or **libraries**.
 2. Its standard library is large and comprehensive. This makes it easy for **developers** to learn python.
 3. Additionally, python supports **objects**, **modules**, **threads**, **exception-handling**, and **automatic memory management** which will help in modeling real-world problems and building applications to solve those problems.
-4. Python is widely used among the latest and most emerging fields such as **Machine Learning**, **Deep Learning**, **Artificial Intelligence**, **Web Development**, **Web Scraping**, **Data Mining**, **Data Visualization**, **Data Science** and various other trending domains.
+4. Python is widely used in the latest and most emerging fields such as **Machine Learning**, **Deep Learning**, **Artificial Intelligence**, **Web Development**, **Web Scraping**, **Data Mining**, **Data Visualization**, **Data Science**, and various other trending domains.
 
 <br />
 
@@ -163,12 +164,12 @@ Basic Python Training Organized by Sri Sathya Sai Seva Organization RR District 
 
 **Python** has grown to become an integral part of most of the recent web-based, desktop-based, graphic design, scientific, and computational applications. **The following are just a few applications of the enormous python language**. The List goes on and goes, as we keep exploring more and more fields, where python is used extensively.
 
-- GUI based desktop applications
+- GUI-based desktop applications
 
-  > Tkinter, PyQT, Kivy, WxPython, PyGUI these are most widely used and best Python graphical user interface frameworks available.
+  > Tkinter, PyQT, Kivy, WxPython, and PyGUI are the most widely used and best Python graphical user interface frameworks available.
 
 - Graphic design, image processing applications, Games.
-  > OpenCV, Pillow, SimpleITK are some libraries of image processing .
+  > OpenCV, Pillow, and SimpleITK are some libraries of image processing.
 - Web frameworks and applications.
 
   > Django, Flask, TurboGears, web2py and some other Python web framework are used for Python Web development.
@@ -204,7 +205,7 @@ Basic Python Training Organized by Sri Sathya Sai Seva Organization RR District 
 
 ### **How does Python Programming Language support a Complex Problem Decomposition?** <a name="1.4"></a>
 
-1. **Python** supports **multiple** programming paradigms and features a fully dynamic type system and automatic memory management, similar to Perl, Tcl etc. Like other dynamic languages. Python is often used as a **scripting language**.
+1. **Python** supports **multiple** programming paradigms and features a fully dynamic type system and automatic memory management, similar to Perl, Tcl, etc. Like other dynamic languages. Python is often used as a **scripting language**.
 2. If you have to work with several C libraries, and the usual is order of C is
 
    > write code -> compile it -> test it -> re-write -> re-compile the code -> re-test.
@@ -2024,6 +2025,24 @@ Hence the output count should return 3.
 
  - Python’s `range(1, 10)` function returns a list of consecutive integers, in this case the list ```[1,2,3,4,5,6,7,8,9]```.
    So, the `for` statement `for i in range(1, 10))` is equivalent to:
+   
+This is a range object. If you want a list with numbers 1 to 1000 with 2 as steps in it you can do like this:
+
+```list(range(1, 1000, 2))```
+If you don't want to change the values in the list, using tuple is a better option:
+
+```tuple(range(1, 1000, 2))```
+Range object is different from a list. It doesn't actually contain numbers from 1 to 1000. When you use it in a for loop it generates numbers as it loops through.
+
+For example if you create a range from one to then thousand its not gonna take a lot of memory; but when you convert it to a list, that's when all the actual numbers are gonna be stored in the memory.
+
+In Python 2, range would return a list, but in Python 3 range is an immutable sequence of type range. As stated in python documents:
+
+The advantage of the range type over a regular list or tuple is that a range object will always take the same (small) amount of memory, no matter the size of the range it represents (as it only stores the start, stop and step values, calculating individual items and subranges as needed).
+
+But this doesn't mean you can't use indexing for a range object. Since they are immutable sequences, you can apply indexing on them the same way as a list. The return value will be a range object as well (unless its not sliced and it's only selecting one single element, then it would return that number as int).
+
+```range()``` function only works with the integers i.e. whole numbers. All arguments must be integers. Users can not pass a string or float number or any other type in a start, stop and step argument of a ```range()```. All three arguments can be positive or negative.
 
 ```python
 for i in [1,2,3,4,5,6,7,8,9]
@@ -2905,7 +2924,7 @@ print(num)
 1. Packages are a method of organising Python's module namespace through the use of "dotted module names."
 2. For instance, the module name C.D denotes a submodule named 'D' within a package named 'C.'
 3. Just like using modules frees writers of various modules from having to worry about each other's global variable names, using dotted module names frees authors of multimodule packages from name collisions.
-4. The __init .py is mostly used to initialise Python packages. The simplest approach to explain this is to examine the structure of a typical Python module.
+4. The __init__ .py is mostly used to initialise Python packages. The simplest approach to explain this is to examine the structure of a typical Python module.
 ```python
 --+ PackageDemo
  |-- mod1.py
@@ -2913,10 +2932,10 @@ print(num)
  |-- mod2.py
  |-- __init__.py
 ```
-5. The presence of the __init .py file in a directory signals to the Python interpreter that the directory should be handled as a Python package, as seen in the structure above. The '__init .py' file can simply be an empty file, but it can also execute package startup code or set the __all__ variable.
+5. The presence of the __init__ .py file in a directory signals to the Python interpreter that the directory should be handled as a Python package, as seen in the structure above. The '__init__ .py' file can simply be an empty file, but it can also execute package startup code or set the __all__ variable.
 6. When using from package import item, the item can be a package submodule (or subpackage) or any other name declared in the package, such as a function, class, or variable. If the item is not declared in the package, the import statement assumes it is a module and attempts to load it. If it cannot find it, an ImportError exception is thrown.
 7. If a package's __init .py' code includes a list called __all__, it is assumed to be a list of module names that should be imported when a from package import * is found. When a new version of the package is released, it is the responsibility of the package author to keep this list up to date. If package authors do not see a purpose for importing * from their package, they may choose not to support it.
-8. If __all__ is not specified, the PackageDemo import * statement just guarantees that the package PackageDemo has been imported (perhaps by running its initialization code, '__init .py') and then imports whatever names are declared in the package. Any names specified by '__init .py' are included. It also contains any package submodules that were explicitly loaded by prior import lines.
+8. If __all__ is not specified, the PackageDemo import * statement just guarantees that the package PackageDemo has been imported (perhaps by running its initialization code, '__init__.py') and then imports whatever names are declared in the package. Any names specified by '__init__.py' are included. It also contains any package submodules that were explicitly loaded by prior import lines.
  
 9. file of mod1.py present in demo folder
  ```python
@@ -3057,9 +3076,8 @@ close()| Flush the buffer and close the file
   
  ### **Exercise-15** <a name="20.5"></a> 
   
- 1. Write a script that reads the first 10 lines from the file. Take any file you wish that contain minimum 30 lines.
- 2. Write a script that count the number of lines in a file. Take any file you wish
- 3. Write a script that write lines to the file and they are
+ 1. Write a script that count the number of lines in a file. Take any file you wish
+ 2. Write a script that write lines to the file and they are
 
 ```python
 1. Steve Jobs is a popular name in the world.
@@ -3069,7 +3087,7 @@ close()| Flush the buffer and close the file
 5. He was born on 24th February in the year 1955.
 ```
 
-4. Write a script that append lines to the file that are created in problem 3 and they are
+3. Write a script that append lines to the file that are created in problem 3 and they are
 ```python
 1. Steve Paul Jobs is regarded as a successful American businessman.
 2. He had attained success in different fields.
@@ -3109,12 +3127,8 @@ Error: Provide two numbers
  <br />
   
  ### **Exercise-16**   <a name="21.1"></a> 
- 1. Write a script that join two strings and input is given by the user. When the user gives numbers the error should be handled.
- ```console 
- example two strings are Multiple Wishes -  output is MultipleWishes
- example user gives numbers are 1 5 - output is "Error: Provide two strings"
- ```
- 2. Write a script for multiplication of two numbers(int or float) and the input is taken from the user. When the user gives strings the error should be       handled.
+
+ 1. Write a script for multiplication of two numbers(int or float) and the input is taken from the user. When the user gives strings the error should be       handled.
 ```console
 example two numbers are 2 5 - output is 10
 example user gives are happy life - utput is "Error: Provide two numbers"
@@ -3159,10 +3173,59 @@ example user gives are happy life - utput is "Error: Provide two numbers"
 [go to List of Topics](#top)
 
 <br />
-	
+
+### **List Comprehension** <a name="23"></a> 
+
+1. List comprehensions are a modern approach to construct **new lists**.
+2. Syntax of list comprehension
+> list_syntax = [expression for item in iterable if condition == True]
+3. Note: An if condition may or may not be present in list comprehension. Multiple fors can be found in a list comprehension (nested list comprehensions).
+4. Example - 1 (Iterating through a string Using List Comprehension)
+
+```python
+# using loop
+
+separate_to_letters = []
+
+for letter in 'Multiple Wishes':
+    separate_to_letters.append(letter)
+
+print(separate_to_letters)
+```
+```console
+#output
+['M', 'u', 'l', 't', 'i', 'p', 'l', 'e', ' ', 'W', 'i', 's', 'h', 'e', 's']
+```
+
+
+```python
+#using list comprehension
+
+separate_to_letters = [ letter for letter in 'Multiple Wishes' ]
+print(separate_to_letters)
+```
+```console
+#output
+
+['M', 'u', 'l', 't', 'i', 'p', 'l', 'e', ' ', 'W', 'i', 's', 'h', 'e', 's']
+```
+
+5.  Example - 2 (Conditionals in List Comprehension)
+```python
+number_list = [ x for x in range(10) if x % 2 == 0]
+print(number_list)
+```
+```console
+#output
+
+[0, 2, 4, 6, 8]
+```
+
+<br />
+
 ## **Answers**
 
-### Exercise - 1 <a name="E-1"></a>
+### **Exercise - 1** <a name="E-1"></a>
 
 1. C
 2. D
@@ -3189,7 +3252,7 @@ print(planet_near_to_sun)
 
   <br />
   
-### Exercise - 2 <a name="E-2"></a>
+### **Exercise - 2** <a name="E-2"></a>
 
 1. student_name = "Ramesh"
 2. Solution Code
@@ -3217,7 +3280,7 @@ print("sky", article, colour +",", fruit, article, "yellow, age of suresh",  art
 
   <br />
   
-### Exercise - 3 <a name="E-3"></a>
+### **Exercise - 3** <a name="E-3"></a>
 
 1. Solution code
 
@@ -3266,7 +3329,7 @@ print("city_lives   :", lives)
 
  <br />
  
-### Exercise - 4 <a name="E-4"></a>
+### **Exercise - 4** <a name="E-4"></a>
 
 1. A
 2. B
@@ -3279,7 +3342,15 @@ print("city_lives   :", lives)
 
  <br />
  
-### Exercise - 5  <a name="E-5"></a>
+ [go to Answers](#answers)
+
+<br />
+
+[go to List of Topics](#top)
+
+<br />
+ 
+### **Exercise - 5**  <a name="E-5"></a>
 
 1. Solution code
 
@@ -3310,7 +3381,7 @@ print(result)
 
 <br />
 
-### Exercise - 6 <a name="E-6"></a>
+### **Exercise - 6** <a name="E-6"></a>
 
 1. Solution code
 
@@ -3322,7 +3393,7 @@ print("If your ship doesn \'t come in, \\swim\\ out to it?")
 
 <br />
 
-### Exercise - 7 <a name="E-7"></a>
+### **Exercise - 7** <a name="E-7"></a>
 
 1. Solution code
 ```python 
@@ -3357,7 +3428,7 @@ print(kilometers,'kilometers is equal to', round(miles,2), "miles.")
 
 <br />
 
-### Exercise - 8 <a name="E-8"></a>
+### **Exercise - 8** <a name="E-8"></a>
 
 1. Solution code
 
@@ -3412,7 +3483,15 @@ print("The number of digits in the number are:",count)
 
 <br />
 
-### Exercise - 9 <a name="E-9"></a>
+[go to Answers](#answers)
+
+<br />
+
+[go to List of Topics](#top)
+
+<br />
+
+### **Exercise - 9** <a name="E-9"></a>
 
 1. print(list(range(0,8,2)))
 2. print(list(range(20,3,-4)))
@@ -3424,7 +3503,7 @@ print("The number of digits in the number are:",count)
 
 <br />
 
-### Exercise - 10 <a name="E-10"></a>
+### **Exercise - 10** <a name="E-10"></a>
 
 1. Solution code
 ```python
@@ -3463,7 +3542,7 @@ smallest(number1, number2, number3)
 
 <br />
 
-### Exercise - 11 <a name="E-11"></a>
+### **Exercise - 11** <a name="E-11"></a>
 
 1. Solution code
 ```python
@@ -3487,7 +3566,7 @@ print("Minimum element in the list is :", min(res_list))
 
 <br />
 
-### Exercise - 12 <a name="E-12"></a>
+### **Exercise - 12** <a name="E-12"></a>
 
 1. Solution code
 ```python
@@ -3506,7 +3585,15 @@ print(tuplex)
 
 <br />
 
-### Exercise - 13 <a name="E-13"></a>
+[go to Answers](#answers)
+
+<br />
+
+[go to List of Topics](#top)
+
+<br />
+
+### **Exercise - 13** <a name="E-13"></a>
 
 1. Solution code
 ```python
@@ -3525,7 +3612,7 @@ print(set2)
 ```
 <br />
 
-### Exercise - 14 <a name="E-14"></a>
+### **Exercise - 14** <a name="E-14"></a>
 
 1. Solution code
 ```python
@@ -3546,10 +3633,85 @@ print(details)
 
 <br />
 
-### Exercise - 15 <a name="E-15"></a>
+### **Exercise - 15** <a name="E-15"></a>
 
 1. Solution code
 ```python
+with open("about.txt", 'r') as fp:
+    x = len(fp.readlines())
+    print('Total lines:', x) 
+```
+
+2. Solution code
+```python
+lines = ['Steve Jobs is a popular name in the world.', 
+        'He was the co-founder and chairman of Apple Inc.', 
+        'He is also referred to as an industrial designer,investor, and media tycoon.', 
+        'His full name was Steven Paul Jobs.',
+        'He was born on 24th February in the year 1955.']
+	
+with open('readme.txt', 'w') as f:
+    f.writelines('\n'.join(lines))
+```
+
+3. Solution code
+```python
+appending_lines = ['Steve Paul Jobs is regarded as a successful American businessman.',
+            'He had attained success in different fields.',
+            'He had a great contribution to the development of computers and mobiles.',
+            'He is stated as the initiator of the personal computer revolution.',
+            'He had served as the CEO of Apple Inc from 1997 to 2011.']
+	    
+with open('readme.txt', 'a') as f:
+    f.writelines('\n'.join(lines))
+```
+
+<br />
+
+### **Exercise - 16** <a name="E-16"></a>
+
+1. Solution code
+```python
+try:
+    number1 = float(input("Enter first number "))
+    number2 = float(input("Enter second number "))
+    final = number1 * number1
+    print(final)
+except:
+    print("Error: Provide two numbers")
+```
+
+<br />
+
+[go to Answers](#answers)
+
+<br />
+
+[go to List of Topics](#top)
+
+<br />
 
 
 
+> Some of the important topics : 
+1. Nested Functions
+2. LEGB Rule
+3. Closures
+4. What is the Enclosed Function and What is the nested Function in the following ?
+
+```python
+def outer():
+	x = 3
+	def inner():
+		print(x)
+	inner()
+outer()
+```
+
+5. [Closures reference - Amulya's Academy](https://www.youtube.com/watch?v=tvWRhMkUcoU)
+6. [Closures reference - Corey Schafer Academy](https://www.youtube.com/watch?v=swU3c34d2NQ)
+7. [Scoping in Python - LEGB Rule - Corey Schafer](https://www.youtube.com/watch?v=QVdf0LgmICw)
+8. ``global`` and `nonlocal` keywords
+9. [Namespaces in python](https://realpython.com/python-namespaces-scope/#:~:text=the%20next%20level.-,Namespaces%20in%20Python,values%20are%20the%20objects%20themselves.)
+
+#                                                              ** SAI RAM **                                                      
